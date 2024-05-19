@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Cliente;
+use App\Http\Controllers\Pedido;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/cliente', [Cliente::class, 'index']);
+
+Route::get('/pedido', [Pedido::class, 'index']);
