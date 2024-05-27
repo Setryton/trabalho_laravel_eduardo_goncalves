@@ -3,6 +3,7 @@
 use App\Http\Controllers\Cliente;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Pedido;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,4 @@ Route::get('/', function () {
 //Route::get('/pedido', [Pedido::class, 'index']);
 
 Route::resource('cliente', ClienteController::class);
+Route::get('/cadastro-cliente', [ClienteController::class, 'create'])->name('cliente.create');
