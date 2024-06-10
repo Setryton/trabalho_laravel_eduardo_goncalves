@@ -14,7 +14,7 @@
             <h2 class="mb-0">Formulário de Cadastro de Cliente</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('cliente.store') }}" method="POST">
+            <form action="{{ route('produto.store') }}" method="POST">
               @csrf
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
