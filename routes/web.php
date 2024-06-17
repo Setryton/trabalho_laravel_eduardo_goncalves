@@ -23,3 +23,7 @@ Route::get('/cadastro-cliente', [ClienteController::class, 'create'])->name('cli
 Route::get('/produto-cliente', [ClienteController::class, 'create'])->name('produto.create');
 
 Route::resource('user', UserController::class);
+
+Route::get('/',[UserController::class,'login'])->name('login.page');
+Route::post('/auth', [UserController::class,'auth'])->name('auth.user');
+
