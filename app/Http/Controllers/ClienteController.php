@@ -38,4 +38,37 @@ class ClienteController extends Controller
 
         return redirect()->route('cliente.index');
     }
+
+    public function edit($id)
+    {
+        $clientes = Cliente::where('id',$id)->first();
+        if(!empty($clientes)){
+            return view('cliente.edit', ['clientes'=>$clientes]);
+        } else {
+            return redirect()->route('cliente.index');
+        }
+        
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = [
+            'nome' => $request->nome,
+            'idade' => $request->idade,
+            'email' => $request->email,
+            'cidade' => $request->cidade,
+            'endereco' => $request->endereco,
+            'estado' => $request->estado,
+            'CEP' => $request->CEP
+        ];
+        cliente::where('id',$id)->update($data);
+        return redirect()->route('cliente.index');
+
+    }
+
+    public function destroy($id)
+    {
+        cliente::where('id',$id)->delete();
+        return redirect()->route('cliente.index');
+    }
 }

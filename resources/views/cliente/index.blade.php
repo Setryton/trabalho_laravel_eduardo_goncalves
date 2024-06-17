@@ -18,6 +18,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th scope="col">id</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Email</th>
                             <th scope="col">Idade</th>
@@ -25,20 +26,30 @@
                             <th scope="col">Cidade</th>
                             <th scope="col">Estado</th>
                             <th scope="col">CEP</th>
+                            <th scope="col">...</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         @foreach ($cliente as $cliente)
-                            <tr>
-                                <td>{{ $cliente->nome }}</td>
-                                <td>{{ $cliente->email }}</td>
-                                <td>{{ $cliente->idade }}</td>
-                                <td>{{ $cliente->endereco }}</td>
-                                <td>{{ $cliente->cidade }}</td>
-                                <td>{{ $cliente->estado }}</td>
-                                <td>{{ $cliente->CEP }}</td>
-                            </tr>
+                        <tr>
+                            <td>{{ $cliente->id }}</td>
+                            <td>{{ $cliente->nome }}</td>
+                            <td>{{ $cliente->email }}</td>
+                            <td>{{ $cliente->idade }}</td>
+                            <td>{{ $cliente->endereco }}</td>
+                            <td>{{ $cliente->cidade }}</td>
+                            <td>{{ $cliente->estado }}</td>
+                            <td>{{ $cliente->CEP }}</td>
+                            <th class="d-flex">
+                                <a href="{{ route('cliente.edit', ['id'=>$cliente->id]) }}" class="btn btn-success mb-2">Editar</a>
+                                <form action="{{ route('cliente.destroy', ['id'=>$cliente->id]) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                </form>
+                            </th>
+                        </tr>
                         @endforeach
 
                     </tbody>
