@@ -12,6 +12,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('inicial.home');
+});
+
 //Route::get('/cliente', [ClienteController::class, 'index']);
 
 //Route::get('/pedido', [Pedido::class, 'index']);
